@@ -15,7 +15,7 @@ export default class City extends React.Component{
         return {
            title: props.navigation.state.params.city.city,
            headerTitleStyle: {
-               fontSize: 200,
+               fontSize: 20,
                fontWeight: '400'
            }
         }
