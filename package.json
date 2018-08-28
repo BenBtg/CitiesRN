@@ -5,7 +5,6 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "clean": "react-native-clean-project"
   },
   "dependencies": {
     "appcenter": "^1.8.0",
@@ -20,14 +19,14 @@
     "babel-jest": "^22.4.4",
     "babel-preset-react-native": "^4.0.0",
     "jest": "23.5.0",
-    "react-native-clean-project": "^3.0.0",
     "react-test-renderer": "16.4.1"
   },
   "jest": {
     "preset": "react-native",
     "setupFiles": [
       "<rootDir>/node_modules/appcenter-analytics/test/AppCenterAnalyticsMock.js",
-      "<rootDir>/node_modules/appcenter-crashes/test/AppCenterCrashesMock.js"
+      "<rootDir>/node_modules/appcenter-crashes/test/AppCenterCrashesMock.js",
+      "<rootDir>/node_modules/appcenter/test/AppCenterMock.js"
     ]
   }
 }
