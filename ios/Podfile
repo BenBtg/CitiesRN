@@ -13,8 +13,6 @@ target 'CitiesRN' do
   
 
   platform :ios, '9.0'
-  pod 'CodePush', :path => '../node_modules/react-native-code-push'
-
   target 'CitiesRNTests' do
     inherit! :search_paths
     # Pods for testing
