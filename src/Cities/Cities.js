@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, StyleSheet, ScrollView, TouchableWithoutFeedback} from 'react-native'
+import {View, Text, StyleSheet, FlatList, TouchableWithoutFeedback} from 'react-native'
 
 import {colors} from '../theme'
 
@@ -20,24 +20,21 @@ export default class Cities extends React.Component{
 
     render() {
         return (
-            <ScrollView>
-                <View>
-                    {
-                        !this.props.screenProps.cities.length && <Text>No cities yet!</Text>
-                    }
-                    {
-                        this.props.screenProps.cities.map((city, id) => (
-                        <View key={id}>
-                            <TouchableWithoutFeedback onPress={() => this.viewCity(city)}>
-                            <View style={styles.cityContainer}>
-                                <Text style={styles.city}>{city.city}</Text>
-                                <Text style={styles.country}>{city.country}</Text>
-                            </View>
-                            </TouchableWithoutFeedback>
+                <FlatList 
+                    data={ this.props.screenProps.cities }
+                    renderItem={({item}) => 
+                    <View>
+                        <TouchableWithoutFeedback onPress={() => this.viewCity(item)}>
+                        <View style={styles.cityContainer}>
+                            <Text style={styles.city}>{item.city}</Text>
+                            <Text style={styles.country}>{item.country}</Text>
                         </View>
-                    ))}
-                </View>
-            </ScrollView>
+                        </TouchableWithoutFeedback>
+                    </View>}
+                    ListEmptyComponent={<View style={styles.emptyTextContainer}>
+                        <Text style={styles.emptyText}>No cities added</Text>
+                    </View>}
+                /> 
         )
     }
 }
@@ -47,6 +44,15 @@ const styles = StyleSheet.create({
         padding: 10,
         borderBottomWidth : 2,
         borderBottomColor: colors.primary
+    },
+    emptyTextContainer: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    emptyText: {
+        fontSize: 20,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     city: {
         fontSize: 20
