@@ -8,7 +8,7 @@ import {View, Text, StyleSheet,
 
 import {colors} from '../theme'
 
-import {CenterMessage}  from '../components/CenterMessage'
+import CenterMessage  from '../components/CenterMessage'
 
 export default class City extends React.Component{
     static navigationOptions = (props)=> {

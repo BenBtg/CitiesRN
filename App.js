@@ -5,16 +5,16 @@ import Tabs from './src/index'
 const key = 'cities'
 
 export default class App extends React.Component {
-
-  state= {
+  state = {
     cities: []
   }
 
   async componentDidMount(){
     try{
-      const cities = await AsyncStorage.getItem(key)
+      const citiesJson = await AsyncStorage.getItem(key)
       console.log('cities:', cities)
-      this.setState({cities : JSON.parse(cities)})
+      const cities = JSON.parse(citiesJson)
+      this.setState({cities : cities ? cities : [] })
     } catch(e) {
       console.log('e:', e)
     }
